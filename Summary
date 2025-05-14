@@ -1,0 +1,38 @@
+Summary dari apa yang saya pelajari dari materi sebelum UTS adalah :
+
+A. Library Python 
+- Pandas: Manipulasi data terstruktur (membaca data, filtering, agregasi). Contoh: `pd.DataFrame()` untuk membuat struktur tabel.
+- NumPy: Operasi matematika kompleks (aljabar linear, operasi vektor/matriks).
+- Matplotlib: Visualisasi data interaktif (heatmap, boxplot) selain Matplotlib.
+
+B. Persiapan Data
+1. Normalisasi Teks:
+   - Penyeragaman huruf (lowercasing)
+   - Filter karakter non-alfanumerik menggunakan regex
+   - Stemming/Lemmatization (contoh: "menggunakan" → "guna")
+2. Pengolahan Dataset:
+   - Handling missing values: `fillna()` atau interpolasi
+   - Encoding kategorikal: `pd.get_dummies()`
+   - Normalisasi numerik: Min-Max/Z-Score
+
+C. Metode Klasifikasi
+1. Naive Bayes Multinomial:
+   - Optimal untuk data frekuensi kata (contoh: analisis sentimen)
+   - Asumsi independensi fitur: P(fitur|kelas) dihitung terpisah
+2. Decision Tree:
+   - Kriteria split: Entropy/Gini Index
+   - Teknik pruning (pre-pruning: batasi max_depth, post-pruning: cost complexity)
+
+D. Validasi Kinerja Model
+- Holdout Validation: Pembagian 70-30 atau 80-20 (training-test)
+- Presisi = TP/(TP+FP) (ketepatan prediksi positif)
+- Recall = TP/(TP+FN) (kemampuan deteksi kasus positif)
+- ROC-AUC: Kurva performa model pada berbagai threshold klasifikasi
+- Stratified K-Fold: Cross-validation dengan menjaga distribusi kelas
+
+E. Studi Kasus Implementasi
+```python
+from sklearn.naive_bayes import GaussianNB
+model = GaussianNB()
+model.fit(X_train, y_train)
+print(classification_report(y_test, model.predict(X_test)))
